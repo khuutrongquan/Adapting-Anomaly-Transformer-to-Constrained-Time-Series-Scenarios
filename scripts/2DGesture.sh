@@ -1,0 +1,2 @@
+--anormly_ratio 0.5  --num_epochs 10   --batch_size 64  --mode train --dataset 2DGesture  --data_path dataset/2DGesture --input_c 2    --output_c 2
+--anormly_ratio 0.5  --num_epochs 10   --batch_size 64  --mode test --dataset 2DGesture  --data_path dataset/2DGesture --input_c 2    --output_c 2
