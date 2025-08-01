@@ -7,22 +7,65 @@ Unsupervised time series anomaly detection plays a pivotal role in real-world ap
 
 ## Main Contributions
 
-1. **Overall Architecture**
-   ![Proposed Anomaly Transformer model](Images/ProposedAnomalyTransformer.jpg)
+1. **Overall Architecture**  
+   ![Proposed Anomaly Transformer model](images/ProposedAnomalyTransformer.jpg)
    - Proposed a Hybrid Encoder to improve an ability of capturing temporal and dynamic dependencies and reduce over-reliance on self-attention mechanism of Transformer.
    - Achieve F1 score improvements of approximately 18% on the UCR dataset, 1.2% on ECG, and 0.5% on the 2D-Gesture dataset.
-2. **Proposed Hybrid Encoder**
-   ![Hybrid Encoder](Images/HybridEncoder.jpg)
-   - Integrate Temporal Convolutional Networks (TCNs) and Convolutional Neural Networks (1D-CNNs)
-   - 
-3. **Training and Testing Strategy**
+2. **Proposed Hybrid Encoder**  
+   ![Hybrid Encoder](images/HybridEncoder.jpg)
+   - Integrate Temporal Convolutional Networks (TCNs) and one-dimensional Convolutional Neural Networks (1D-CNNs) in parallel:
+      + TCN leverages dilated causal convolutions to enable each output time step to access all preceding inputs.
+      + 1D-CNN with kernel 3 is employed to capture short-range temporal patterns through localized convolutions.
+   ⇒ By combining the complementary strengths of TCNs and CNNs, the Hybrid Encoder produces a more expressive input embedding, enhancing the overall capacity of the Anomaly Transformer in detecting subtle or complex anomalies in time series data.
+
+## Implementation
+
+### 1. [Original Anomaly Transformer](https://github.com/thuml/Anomaly-Transformer)
+- Copy and paste the dataset and data_factory directory in our repository to the original repository.
+- Run main with command-line arguments in ([scripts](scripts))
+
+### 2. [Anomaly Transformer with proposed Hybrid Encoder](https://github.com/khuutrongquan/Adapting-Anomaly-Transformer-to-Constrained-Time-Series-Scenarios)
+- Directly run main with command-line arguments in ([scripts](scripts))
+
+## Experimental Results
+
+### Datasets
+- Input datasets for testing consist of three datasets:
+![Table of Detailed datasets](images/TableOfDetailedDatasets.jpg)
+
+### Hardware
+- GPU: NVIDIA GeForce RTX 4050 GPU
+
+### Final Results and Comparison with Original Anomaly Transformer
+![Final Results](images/FinalResults.jpg)
+
+## Requirements
+
+### Hardware
+- CUDA-capable GPU
+
+### Software
+- CUDA Toolkit
+- Python 3.7+
+- Required libraries:
+  ```
+   torch>=1.9.0
+   torchvision>=0.10.0
+   numpy>=1.21.0
+   scipy>=1.7.0
+   scikit-learn>=1.0.0
+  ```
+
+
+## Guideline how to use our package on Window
+
 
 ## Authors
 
-- Khuu Trong Quan¹ (khuutrongquan220405@gmail.com)
-- Huynh Cong Viet Ngu²* (nguhcv@fe.edu.vn)
+- Khuu Trong Quan<sup>1</sup> (khuutrongquan220405@gmail.com)
+- Huynh Cong Viet Ngu<sup>2,</sup>* (nguhcv@fe.edu.vn)
 
-¹Department of Software Engineering, FPT University, Ho Chi Minh, Vietnam
-²Department of Computing Fundamental, FPT University, Ho Chi Minh, Vietnam
+<sup>1</sup>Department of Software Engineering, FPT University, Ho Chi Minh, Vietnam  
+<sup>2</sup>Department of Computing Fundamental, FPT University, Ho Chi Minh, Vietnam  
 \* Corresponding author
 
