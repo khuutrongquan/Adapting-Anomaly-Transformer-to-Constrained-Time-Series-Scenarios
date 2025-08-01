@@ -30,7 +30,7 @@ Unsupervised time series anomaly detection plays a pivotal role in real-world ap
 ## Experimental Results
 
 ### Datasets
-- Input datasets for testing consist of three datasets:
+- Input datasets consist of three datasets:
 ![Table of Detailed datasets](images/TableOfDetailedDatasets.jpg)
 
 ### Hardware
