@@ -22,7 +22,7 @@ Unsupervised time series anomaly detection plays a pivotal role in real-world ap
 - Khuu Trong Quan¹ (khuutrongquan220405@gmail.com)
 - Huynh Cong Viet Ngu²* (nguhcv@fe.edu.vn)
 
-^{1}Department of Software Engineering, FPT University, Ho Chi Minh, Vietnam
-^{2}Department of Computing Fundamental, FPT University, Ho Chi Minh, Vietnam
+¹Department of Software Engineering, FPT University, Ho Chi Minh, Vietnam
+²Department of Computing Fundamental, FPT University, Ho Chi Minh, Vietnam
 \* Corresponding author
 
