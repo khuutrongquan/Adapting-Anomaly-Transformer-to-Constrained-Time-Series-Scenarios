@@ -8,7 +8,7 @@ Unsupervised time series anomaly detection plays a pivotal role in real-world ap
 ## Main Contributions
 
 1. **Overall Architecture** 
-    <br/>![Proposed Anomaly Transformer model](images/ProposedAnomalyTransformer.jpg)
+   <br/>![Proposed Anomaly Transformer model](images/ProposedAnomalyTransformer.jpg)
    - Proposed a Hybrid Encoder to improve an ability of capturing temporal and dynamic dependencies and reduce over-reliance on self-attention mechanism of Transformer.
    - Achieve F1 score improvements of approximately 18% on the UCR dataset, 1.2% on ECG, and 0.5% on the 2D-Gesture dataset.
 2. **Proposed Hybrid Encoder**  
@@ -30,7 +30,7 @@ Unsupervised time series anomaly detection plays a pivotal role in real-world ap
 ## Experimental Results
 
 ### Datasets
-- Input datasets consist of three datasets:
+- Input datasets consist of three datasets:  <br/>
 ![Table of Detailed datasets](images/TableOfDetailedDatasets.jpg)
 
 ### Hardware
