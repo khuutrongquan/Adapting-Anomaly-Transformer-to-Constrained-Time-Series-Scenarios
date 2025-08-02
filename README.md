@@ -10,14 +10,16 @@ Unsupervised time series anomaly detection plays a pivotal role in real-world ap
 1. **Overall Architecture** 
    - Proposed a Hybrid Encoder to improve an ability of capturing temporal and dynamic dependencies and reduce over-reliance on self-attention mechanism of Transformer.
    - Achieve F1 score improvements of approximately 18% on the UCR dataset, 1.2% on ECG, and 0.5% on the 2D-Gesture dataset.
-   <br/>![Proposed Anomaly Transformer model](images/ProposedAnomalyTransformer.jpg)
+
+![Proposed Anomaly Transformer model](images/ProposedAnomalyTransformer.jpg)
+
 2. **Proposed Hybrid Encoder**  
    - Integrate Temporal Convolutional Networks (TCNs) and one-dimensional Convolutional Neural Networks (1D-CNNs) in parallel:
       + TCN leverages dilated causal convolutions to enable each output time step to access all preceding inputs.
       + 1D-CNN with kernel 3 is employed to capture short-range temporal patterns through localized convolutions.
    ⇒ By combining the complementary strengths of TCNs and CNNs, the Hybrid Encoder produces a more expressive input embedding, enhancing the overall capacity of the Anomaly Transformer in detecting subtle or complex anomalies in time series data.
    
-<br/>![Hybrid Encoder](images/HybridEncoder.jpg)
+![Hybrid Encoder](images/HybridEncoder.jpg)
 
 ## Implementation
 
