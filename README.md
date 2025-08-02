@@ -16,7 +16,8 @@ Unsupervised time series anomaly detection plays a pivotal role in real-world ap
       + TCN leverages dilated causal convolutions to enable each output time step to access all preceding inputs.
       + 1D-CNN with kernel 3 is employed to capture short-range temporal patterns through localized convolutions.
    ⇒ By combining the complementary strengths of TCNs and CNNs, the Hybrid Encoder produces a more expressive input embedding, enhancing the overall capacity of the Anomaly Transformer in detecting subtle or complex anomalies in time series data.
-   <br/>![Hybrid Encoder](images/HybridEncoder.jpg)
+   
+<br/>![Hybrid Encoder](images/HybridEncoder.jpg)
 
 ## Implementation
 
