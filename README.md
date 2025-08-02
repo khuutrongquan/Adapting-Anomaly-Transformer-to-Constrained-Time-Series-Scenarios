@@ -58,7 +58,12 @@ Unsupervised time series anomaly detection plays a pivotal role in real-world ap
 
 
 ## Guideline how to use our package on Window
-
+### Setup Github
+![Setup Github](images/SetupGithub.jpg)
+### Training
+![Training](images/Training.jpg)
+### Testing
+![Testing](images/Testing.jpg)
 
 ## Authors
 
