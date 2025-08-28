@@ -57,7 +57,7 @@ class TemporalBlock(nn.Module):
         return self.act(out + res)
     
 class TemporalConvNet(nn.Module):
-    def __init__(self, num_inputs, num_channels=[32, 64, 128], kernel_size=2, dropout=0.0, activation='relu'):
+    def __init__(self, num_inputs, num_channels=[32, 64, 128], kernel_size=3, dropout=0.0, activation='relu'):
         super(TemporalConvNet, self).__init__()
         self.n_inputs = num_inputs
         layers = []
@@ -77,7 +77,7 @@ class TemporalConvNet(nn.Module):
         return x
 
 class TokenEmbedding(nn.Module):
-    def __init__(self, c_in, d_model, num_channels=[32, 64, 128], kernel_size=2, dropout=0.0):
+    def __init__(self, c_in, d_model, num_channels=[32, 64, 128], kernel_size=3, dropout=0.0):
         super(TokenEmbedding, self).__init__()
         self.tcn = TemporalConvNet(c_in, num_channels, kernel_size=kernel_size, dropout=dropout)
         self.linear = nn.Linear(num_channels[-1], d_model)
