@@ -209,10 +209,10 @@ class PositionalEmbedding(nn.Module):
 class DataEmbedding(nn.Module):
     def __init__(self, c_in, d_model, dropout=0.0):
         super(DataEmbedding, self).__init__()
-        # self.value_embedding = TokenEmbedding(c_in=c_in, d_model=d_model)
+        self.value_embedding = TokenEmbedding(c_in=c_in, d_model=d_model)
         # self.value_embedding = DoubleParallelTCNEmbedding(c_in=c_in, d_model=d_model)
         # self.value_embedding = DoubleParallelConvolutionalEmbedding(c_in=c_in, d_model=d_model)
-        self.value_embedding = DoubleSequentialTCNEmbedding(c_in=c_in, d_model=d_model)
+        # self.value_embedding = DoubleSequentialTCNEmbedding(c_in=c_in, d_model=d_model)
         # self.value_embedding = DoubleSequentialConvolutionalEmbedding(c_in=c_in, d_model=d_model)
         self.position_embedding = PositionalEmbedding(d_model=d_model)
 
