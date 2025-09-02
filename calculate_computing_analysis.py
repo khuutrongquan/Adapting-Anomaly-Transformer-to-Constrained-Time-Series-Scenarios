@@ -1,11 +1,11 @@
 import torch
-from fvcore.nn import FlopCountAnalysis, parameter_count_table
+from fvcore.nn import FlopCountAnalysis
 from model.AnomalyTransformer import AnomalyTransformer
 
 def count_flops(model, input_size):
     model.eval()
-    dummy_input = torch.randn(*input_size).cuda()  # input on GPU
-    flops = FlopCountAnalysis(model, (dummy_input,))  # wrap in tuple
+    dummy_input = torch.randn(*input_size).cuda()
+    flops = FlopCountAnalysis(model, (dummy_input,))
     return flops.total()
 
 def count_params(model):
