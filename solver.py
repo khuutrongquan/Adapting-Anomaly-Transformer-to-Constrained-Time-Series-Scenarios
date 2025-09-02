@@ -46,9 +46,9 @@ class EarlyStopping:
         elif score < self.best_score + self.delta or score2 < self.best_score2 + self.delta:
             self.counter += 1
             print(f'EarlyStopping counter: {self.counter} out of {self.patience}')
-            # self.early_stop = False                                         #with situation of UCR_135, UCR_138
-            if self.counter >= self.patience:                             #with other of UCR_135, UCR_138
-                self.early_stop = True
+            self.early_stop = False                                         #with situation of UCR_135, UCR_138
+            # if self.counter >= self.patience:                             #with other of UCR_135, UCR_138
+            #     self.early_stop = True
            
         else:
             self.best_score = score
