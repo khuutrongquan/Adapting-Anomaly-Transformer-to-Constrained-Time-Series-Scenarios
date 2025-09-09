@@ -88,9 +88,9 @@ class TCNEmbedding(nn.Module):
 
     def forward(self, x):
         x = x.permute(0, 2, 1)
-        y1 = self.tcn(x)         # output: [B, C_out, L]
-        y1 = y1.transpose(1, 2)  # → [B, L, C_out]
-        return self.linear(y1)   # → [B, L, d_model]
+        y1 = self.tcn(x)         
+        y1 = y1.transpose(1, 2)  
+        return self.linear(y1)   
 
 class ConvolutionalEmbedding(nn.Module):
     def __init__(self, c_in, d_model):
@@ -145,10 +145,10 @@ class DoubleSequentialTCNEmbedding(nn.Module):
 
     def forward(self, x):
         x = x.permute(0, 2, 1)
-        out = self.tcn1(x)                          # [B, C_out, L]
-        out = self.tcn2(out)                        # [B, C_out, L]
-        out = out.transpose(1, 2)                   # [B, L, C_out]
-        return self.linear(out)                     # [B, L, d_model]
+        out = self.tcn1(x)                          
+        out = self.tcn2(out)                        
+        out = out.transpose(1, 2)                   
+        return self.linear(out)                     
 
 class DoubleParallelConvolutionalEmbedding(nn.Module):
     def __init__(self, c_in, d_model):
@@ -162,10 +162,10 @@ class DoubleParallelConvolutionalEmbedding(nn.Module):
                 nn.init.kaiming_normal_(m.weight, mode='fan_in', nonlinearity='leaky_relu')
 
     def forward(self, x):
-        x1 = self.tokenConv1(x.permute(0, 2, 1))    # [B, d_model, L]
-        x2 = self.tokenConv1(x.permute(0, 2, 1))    # [B, d_model, L]
-        out = x1 + x2                               # [B, d_model, L]
-        return out.permute(0, 2, 1)                 # [B, L, d_model]
+        x1 = self.tokenConv1(x.permute(0, 2, 1))    
+        x2 = self.tokenConv1(x.permute(0, 2, 1))    
+        out = x1 + x2                               
+        return out.permute(0, 2, 1)                 
     
 class DoubleParallelTCNEmbedding(nn.Module):
     def __init__(self, c_in, d_model, num_channels=[32, 64, 128], kernel_size=3, dropout=0.0):
@@ -180,11 +180,11 @@ class DoubleParallelTCNEmbedding(nn.Module):
 
     def forward(self, x):
         x = x.permute(0, 2, 1)
-        y1 = self.tcn1(x)                           # output: [B, C_out, L]
-        y2 = self.tcn2(x)                           # output: [B, C_out, L]
+        y1 = self.tcn1(x)                           
+        y2 = self.tcn2(x)                           
         y = y1 + y2
-        y = y.transpose(1, 2)                       # → [B, L, C_out]
-        return self.linear(y)                       # → [B, L, d_model]
+        y = y.transpose(1, 2)                       
+        return self.linear(y)                       
 
 class PositionalEmbedding(nn.Module):
     def __init__(self, d_model, max_len=5000):
