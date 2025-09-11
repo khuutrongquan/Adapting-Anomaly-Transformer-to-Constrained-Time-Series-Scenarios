@@ -39,23 +39,16 @@ class ECGSegLoader(object):
     def __getitem__(self, index):
         index = index * self.step
         if self.mode == "train":
-            x = self.train[index:index + self.win_size]
-            return np.float32(x), np.zeros_like(x)  # Không cần label khi train
-
-        elif self.mode == "val":
-            x = self.val[index:index + self.win_size]
-            return np.float32(x), np.zeros_like(x)
-
-        elif self.mode == "test":
-            x = self.test[index:index + self.win_size]
-            label = self.test_labels[index + self.win_size - 1]  # Lấy label cuối của window
-            label = np.repeat(label, x.shape[1])  # Nếu model dùng toàn bộ input
-            return np.float32(x), np.float32(label)
-
-        else:  # prediction mode
-            x = self.test[index // self.step * self.win_size: index // self.step * self.win_size + self.win_size]
-            label = self.test_labels[index // self.step * self.win_size: index // self.step * self.win_size + self.win_size]
-            return np.float32(x), np.float32(label)
+            return np.float32(self.train[index:index + self.win_size]), np.float32(self.test_labels[0:self.win_size])
+        elif (self.mode == 'val'):
+            return np.float32(self.val[index:index + self.win_size]), np.float32(self.test_labels[0:self.win_size])
+        elif (self.mode == 'test'):
+            return np.float32(self.test[index:index + self.win_size]), np.float32(
+                self.test_labels[index:index + self.win_size])
+        else:
+            return np.float32(self.test[
+                              index // self.step * self.win_size:index // self.step * self.win_size + self.win_size]), np.float32(
+                self.test_labels[index // self.step * self.win_size:index // self.step * self.win_size + self.win_size])
 
 class UCRSegLoader(object):
     def __init__(self, data_path, win_size, step, mode="train"):
